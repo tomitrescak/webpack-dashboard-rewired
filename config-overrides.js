@@ -1,9 +1,9 @@
 const { compose } = require('react-app-rewired');
-const {
-  rewireWebpack: rewireTypescript,
-  rewireJest: rewireTypescriptJest
-} = require("react-app-rewire-typescript-babel-preset");
-const rewireReactHotLoader = require('react-app-rewire-hot-loader');
+// const {
+//   rewireWebpack: rewireTypescript,
+//   rewireJest: rewireTypescriptJest
+// } = require("react-app-rewire-typescript-babel-preset");
+// const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 function rewireLoaderPlugin(config, env, definePluginOptions = {}) {
@@ -16,14 +16,14 @@ function rewireLoaderPlugin(config, env, definePluginOptions = {}) {
 module.exports = {
   webpack: function(config, env) {
     const rewires = compose(
-      rewireTypescript,
-      rewireReactHotLoader,
+      // rewireTypescript,
+      // rewireReactHotLoader,
       rewireLoaderPlugin
     );
 
     return rewires(config, env);
   },
-  jest: function(config) {
-    return rewireTypescriptJest(config);
-  }
+  // jest: function(config) {
+  //   return rewireTypescriptJest(config);
+  // }
 };
